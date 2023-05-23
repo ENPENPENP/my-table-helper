@@ -5,6 +5,7 @@ package cn.elphen.mytablehelper.api;
  * type used as a generics type(type parameter).
  *
  * @author Elphen
+ * @since 0.0.1
  */
 public interface Wrapper {
 

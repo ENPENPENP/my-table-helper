@@ -9,6 +9,20 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
+    <name>mth-api</name>
+    <description>
+        MyTableHelper is an automatic database/table generation library.
+        'mth-api' module provided the basic framework and available APIs.
+    </description>
+    <url>https://github.com/ENPENPENP/my-table-helper</url>
+    <developers>
+        <developer>
+            <id>ENPENPENP</id>
+            <name>Elphen Liu</name>
+            <url>https://github.com/ENPENPENP</url>
+        </developer>
+    </developers>
+
     <build>
         <plugins>
             <plugin>

@@ -5,6 +5,7 @@ package cn.elphen.mytablehelper.api;
  * Note that a service must be distinguished by supported <code>platformName</code> and a custom <code>componentId</code>.
  *
  * @author Elphen
+ * @since 0.0.1
  */
 public interface ServiceIdentify {
 

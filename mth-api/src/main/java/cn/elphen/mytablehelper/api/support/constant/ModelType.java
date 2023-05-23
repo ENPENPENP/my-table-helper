@@ -1,7 +1,8 @@
 package cn.elphen.mytablehelper.api.support.constant;
 
 /**
- * Type of model. Used to distinguish the model is which part of an Entity.
+ * The enumeration of the type of model, used to distinguish the model is which part of an Entity.
+ * Conventing the level of model, the developers must define model objects in terms of the level of the model.
  *
  * @author Elphen Liu
  * @since 0.0.1
