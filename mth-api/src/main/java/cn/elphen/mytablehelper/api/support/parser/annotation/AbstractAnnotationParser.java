@@ -1,11 +1,10 @@
 package cn.elphen.mytablehelper.api.support.parser.annotation;
 
-import java.lang.annotation.Annotation;
-
 import cn.elphen.mytablehelper.api.AnnotationParser;
 import cn.elphen.mytablehelper.api.Model;
-import cn.elphen.mytablehelper.api.exception.ObjectInstantException;
 import cn.elphen.mytablehelper.api.util.ReflectionUtil;
+
+import java.lang.annotation.Annotation;
 
 /**
  * An abstracted implement of AnnotationParser.
@@ -16,7 +15,7 @@ import cn.elphen.mytablehelper.api.util.ReflectionUtil;
 public abstract class AbstractAnnotationParser<M extends Model, A extends Annotation> implements AnnotationParser<M, A> {
 
     @Override
-    public boolean verify(Object source) {
+    public boolean verifyAnnotation(Object source) {
         return ReflectionUtil.hasAnnotation(source, getAnnotationClass());
     }
 

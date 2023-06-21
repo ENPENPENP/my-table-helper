@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 /**
  * A executor to execute a database script with specified datasource.
  * <p>
- *     Use <code>DataSourceSupplier</code> for convenient to provide a datasource.
+ * Use <code>DataSourceSupplier</code> for convenient to provide a datasource.
  * </p>
  *
  * @author Elphen
@@ -15,13 +15,13 @@ import javax.sql.DataSource;
 public interface ScriptExecutor {
 
     /**
-     * Execute the script with a datasource.
+     * Execute the scriptBlock with a datasource.
      *
-     * @param script     script
-     * @param dataSource datasource for a database
-     * @see DataSource
+     * @param scriptBlock scriptBlock
+     * @param dataSource  datasource for a database
      * @return execute result
+     * @see DataSource
      */
-    boolean executeWith(String script, DataSource dataSource);
+    boolean executeWith(ScriptBlock<?> scriptBlock, DataSource dataSource);
 
 }

@@ -1,6 +1,6 @@
 package cn.elphen.mytablehelper.api.support.holder;
 
-import cn.elphen.mytablehelper.api.support.AbstractWrapper;
+import cn.elphen.mytablehelper.api.support.flow.AbstractWrapper;
 import cn.elphen.mytablehelper.api.Model;
 import cn.elphen.mytablehelper.api.ParsedModelHolder;
 import cn.elphen.mytablehelper.api.MetaObject;

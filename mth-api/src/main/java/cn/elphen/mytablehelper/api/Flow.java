@@ -1,7 +1,5 @@
 package cn.elphen.mytablehelper.api;
 
-import cn.elphen.mytablehelper.api.exception.InvalidEntityException;
-
 /**
  * Flow provided a simple way to execute a completed operation logic from parse object to operate database.
  * It must set some component to implement parts function of the flow.

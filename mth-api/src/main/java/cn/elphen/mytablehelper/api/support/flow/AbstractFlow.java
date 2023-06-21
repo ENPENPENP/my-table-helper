@@ -1,9 +1,8 @@
 package cn.elphen.mytablehelper.api.support.flow;
 
 import cn.elphen.mytablehelper.api.*;
+import cn.elphen.mytablehelper.api.exception.IllegalStateException;
 import cn.elphen.mytablehelper.api.exception.InitializeFailedException;
-import cn.elphen.mytablehelper.api.support.AbstractWrapper;
-import cn.elphen.mytablehelper.api.util.PrintUtil;
 
 import java.util.Map;
 import java.util.Objects;
@@ -89,11 +88,13 @@ public abstract class AbstractFlow extends AbstractWrapper implements Flow {
         //verify entity
         verifyEntity(entity);
 
-        // generate script by entity
-        String script = buildScript(entity);
+        // generate scriptBlock by entity
+        ScriptBlock<?> scriptBlock = buildScript(entity);
 
-        // execute the script
-        return executeScript(script);
+        // System.out.println(scriptBlock);
+
+        // execute the scriptBlock
+        return executeScript(scriptBlock);
     }
 
     @Override
@@ -148,27 +149,27 @@ public abstract class AbstractFlow extends AbstractWrapper implements Flow {
      * @param entity entity model
      * @return database create table script
      */
-    protected String buildScript(Entity entity) {
+    protected ScriptBlock<?> buildScript(Entity entity) {
         return this.scriptGenerator.generateScript(entity);
     }
 
     /**
      * Execute database create table script.
      *
-     * @param script database create table script
+     * @param scriptBlock database create table script
      * @return execute result
      */
-    protected boolean executeScript(String script) {
+    protected boolean executeScript(ScriptBlock<?> scriptBlock) {
         if (this.dataSourceSupplier == null || dataSourceSupplier.get() == null) {
             throw new InitializeFailedException("Can not get connect from given supplier, " +
                     "may be the supplier is null or it return nothing from 'get()' method.");
         }
 
-        if (script == null || "".equalsIgnoreCase(script)) {
-            throw new IllegalArgumentException("Given script must has length.");
+        if (scriptBlock == null || scriptBlock.count() == 0) {
+            throw new IllegalArgumentException("Given ScriptBlock must contain one script as least.");
         }
 
-        return scriptExecutor.executeWith(script, dataSourceSupplier.testAndGet());
+        return scriptExecutor.executeWith(scriptBlock, dataSourceSupplier.testAndGet());
     }
 
     protected void verifyEntity(Entity entity) {
@@ -179,7 +180,7 @@ public abstract class AbstractFlow extends AbstractWrapper implements Flow {
 
     private void checkInitializeState() {
         if (!this.initialized) {
-            throw new IllegalArgumentException("Flow is un-initialized. Please invoke method initialize() to initialize.");
+            throw new IllegalStateException("Flow is un-initialized. Please invoke method initialize() to initialize.");
         }
     }
 }

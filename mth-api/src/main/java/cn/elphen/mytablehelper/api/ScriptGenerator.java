@@ -1,10 +1,11 @@
 package cn.elphen.mytablehelper.api;
 
 /**
- * A consumer type class for generating a executable database script by a parsed model.
+ * A consumer type class for generating a executable database script container by a parsed model.
  *
  * @author Elphen Liu
  * @since 0.0.1
+ * @see ScriptBlock
  */
 public interface ScriptGenerator {
 
@@ -15,6 +16,6 @@ public interface ScriptGenerator {
      * @return generated script
      * @see Model
      */
-    String generateScript(Entity entity);
+    ScriptBlock<?> generateScript(Entity entity);
 
 }

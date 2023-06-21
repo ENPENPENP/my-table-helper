@@ -20,7 +20,7 @@ public interface AnnotationParser<M extends Model, A extends Annotation> {
      * @param source provided object
      * @return true if the object declared with specified annotation
      */
-    boolean verify(Object source);
+    boolean verifyAnnotation(Object source);
 
     /**
      * Return boolean result that if this parser can parse the provided annotation class.

@@ -2,7 +2,6 @@ package cn.elphen.mytablehelper.api.support.handler;
 
 import cn.elphen.mytablehelper.api.*;
 import cn.elphen.mytablehelper.api.exception.NoMatchedParserFoundException;
-import com.sun.org.apache.regexp.internal.RE;
 
 import java.util.ArrayList;
 import java.util.List;
