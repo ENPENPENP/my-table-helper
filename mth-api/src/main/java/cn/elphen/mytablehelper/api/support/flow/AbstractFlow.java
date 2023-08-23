@@ -3,7 +3,9 @@ package cn.elphen.mytablehelper.api.support.flow;
 import cn.elphen.mytablehelper.api.*;
 import cn.elphen.mytablehelper.api.exception.IllegalStateException;
 import cn.elphen.mytablehelper.api.exception.InitializeFailedException;
+import cn.elphen.mytablehelper.api.util.PrintUtil;
 
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,6 +23,7 @@ public abstract class AbstractFlow extends AbstractWrapper implements Flow {
     protected EntityVerifier entityVerifier;
     protected ScriptGenerator scriptGenerator;
     protected ScriptExecutor scriptExecutor;
+    protected PrintWriter logWriter;
     private boolean initialized = false;
 
     public AbstractFlow() {
@@ -46,6 +49,11 @@ public abstract class AbstractFlow extends AbstractWrapper implements Flow {
                     " Please provide a ScriptExecutor to execute database operation script.");
         }
         this.initialized = true;
+    }
+
+    @Override
+    public void setLogWriter(PrintWriter logWriter) {
+        this.logWriter = logWriter;
     }
 
     @Override
@@ -91,7 +99,7 @@ public abstract class AbstractFlow extends AbstractWrapper implements Flow {
         // generate scriptBlock by entity
         ScriptBlock<?> scriptBlock = buildScript(entity);
 
-        // System.out.println(scriptBlock);
+        PrintUtil.printMsgLn(logWriter, "Script: " + scriptBlock.toString());
 
         // execute the scriptBlock
         return executeScript(scriptBlock);

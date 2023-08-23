@@ -1,5 +1,7 @@
 package cn.elphen.mytablehelper.api;
 
+import java.io.PrintWriter;
+
 /**
  * Flow provided a simple way to execute a completed operation logic from parse object to operate database.
  * It must set some component to implement parts function of the flow.
@@ -20,6 +22,13 @@ public interface Flow extends Configurable, Wrapper {
      * (if they are not declared with <code>final</code>).
      */
     void initialize();
+
+    /**
+     * Set a printer to output message or log to an output stream.
+     * @param logWriter print writer
+     * @see PrintWriter
+     */
+    void setLogWriter(PrintWriter logWriter);
 
     /**
      * Set a supplier which can provide a datasource.
