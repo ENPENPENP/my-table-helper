@@ -2,10 +2,7 @@ package cn.elphen.mytablehelper.api.support.holder;
 
 import cn.elphen.mytablehelper.api.MetaObject;
 import cn.elphen.mytablehelper.api.support.constant.MetaDataType;
-import cn.elphen.mytablehelper.api.util.PrintUtil;
 import cn.elphen.mytablehelper.api.util.ReflectionUtil;
-
-
 
 import java.lang.reflect.Field;
 import java.util.Objects;
@@ -70,7 +67,6 @@ public abstract class AbstractMetaObjectHolder implements MetaObject {
                 }
             } catch (Exception e) {
                 // ignored it.
-//                PrintUtil.printMsg("Clone object failed when constructing a MetaObjectHolder. Using original object.");
             }
             if (null == cloneObject) {
                 cloneObject = source;

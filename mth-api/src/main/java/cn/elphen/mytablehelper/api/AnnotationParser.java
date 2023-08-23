@@ -5,8 +5,8 @@ import java.lang.annotation.Annotation;
 /**
  * AnnotationParser provide the ability to parse specified <code>Annotation</code> type Class to specified <code>Model</code>.
  *
- * @param <A> the generic type implements or extends {@link Model}
- * @param <M> any annotation type
+ * @param <A> any annotation type
+ * @param <M> the generic type implements or extends {@link Model}
  * @author Elphen Liu
  * @see Model
  * @see Annotation
